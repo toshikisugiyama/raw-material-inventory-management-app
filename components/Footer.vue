@@ -1,11 +1,11 @@
 <template>
   <footer class="body__footer">
-    <router-link :to="`/${selectedBackTo}`">
+    <nuxt-link :to="`/${selectedBackTo}`">
       <button>戻る</button>
-    </router-link>
-    <router-link to="/edit">
+    </nuxt-link>
+    <nuxt-link to="/edit">
       <button>編集</button>
-    </router-link>
+    </nuxt-link>
   </footer>
 </template>
 
