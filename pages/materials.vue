@@ -3,6 +3,7 @@
     <MaterialItem
       v-for="item in internalApi.materials"
       :key="item.id"
+      :material="item"
     />
   </div>
 </template>

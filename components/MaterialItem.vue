@@ -1,8 +1,8 @@
 <template>
     <section class="materials__item">
-      <div>{{ item.control_code }}</div>
-      <h1>{{ item.name }}</h1>
-      <div>{{ item.supplier }}</div>
+      <div>{{ material.control_code }}</div>
+      <h1>{{ material.name }}</h1>
+      <div>{{ material.supplier }}</div>
     </section>
 </template>
 
@@ -10,8 +10,8 @@
 import { mapGetters } from 'vuex'
 export default {
   props: {
-    item: {
-      type: String,
+    material: {
+      type: Object,
     },
   },
   computed: {

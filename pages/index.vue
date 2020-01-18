@@ -1,15 +1,22 @@
 <template>
-  <div class="container">
-    {{ internalApi }}
+  <div class="inventories">
+    <InventoryItem
+      v-for="item in internalApi.inventories"
+      :key="item.id"
+      :inventory="item"
+    />
   </div>
 </template>
 
 <script>
 import axios from 'axios'
 import { mapGetters } from "vuex"
-import Logo from '~/components/Logo.vue'
+import InventoryItem from "../components/InventoryItem.vue";
 
 export default {
+  components: {
+    InventoryItem,
+  },
   computed: {
     ...mapGetters({
       internalApi: 'getInternalApi',
