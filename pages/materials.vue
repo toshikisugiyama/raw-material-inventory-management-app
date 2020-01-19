@@ -22,7 +22,7 @@ export default {
     })
   },
   async fetch ({ store, params }) {
-    let { data } = await axios.get('http://127.0.0.1:8000/internal_api')
+    let { data } = await axios.get('http://localhost:3000/api/')
     store.commit('setInternalApi', data)
   },
 }

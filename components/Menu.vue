@@ -4,13 +4,16 @@
       <nav>
         <ul class="body__menu__list">
           <li class="body__menu__list__item" @click="handleClick">
-            <router-link to="/search">原材料在庫検索</router-link>
+            <nuxt-link to="/search">原材料在庫検索</nuxt-link>
           </li>
           <li class="body__menu__list__item" @click="handleClick">
-            <router-link to="/">原材料在庫一覧</router-link>
+            <nuxt-link to="/">原材料在庫一覧</nuxt-link>
           </li>
           <li class="body__menu__list__item" @click="handleClick">
-            <router-link to="/create">原材料在登録</router-link>
+            <nuxt-link to="/materials">原材料一覧</nuxt-link>
+          </li>
+          <li class="body__menu__list__item" @click="handleClick">
+            <nuxt-link to="/create">原材料在登録</nuxt-link>
           </li>
         </ul>
       </nav>
