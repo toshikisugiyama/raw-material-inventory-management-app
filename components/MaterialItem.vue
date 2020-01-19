@@ -37,7 +37,7 @@ export default {
 @import '@/assets/scss/variable.scss';
 .materials__item {
   padding: $item-padding;
-  border-bottom: solid 1px #707070;
+  border-bottom: $border-style;
   &__controlcode {
     @include small-font;
   }
@@ -45,7 +45,7 @@ export default {
     @include large-font;
   }
   &__supplier {
-    @include small-font;
+    @include small-font(0);
   }
 }
 </style>

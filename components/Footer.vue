@@ -38,8 +38,8 @@ export default {
   justify-content: center;
   bottom: 0;
   & button {
-    height: 50px;
-    width: 50px;
+    height: $header-height - 10px;
+    width: $header-height - 10px;
     display: flex;
     justify-content: center;
     align-items: center;

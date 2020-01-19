@@ -53,27 +53,33 @@ export default {
 @import '@/assets/scss/variable.scss';
 .inventories__item {
   padding: $item-padding;
-  border-bottom: solid 1px #707070;
+  border-bottom: $border-style;
   &__controlcode {
-    @include small-font($dark-color);
+    @include small-font;
   }
   &__name {
     @include large-font;
   }
   &__lotcode {
-    @include small-font($dark-color);
+    @include small-font;
+    color: $dark-color;
+    font-weight: bold;
     span {
       color: $light-color;
+      font-weight: normal;
     }
   }
   &__dead {
-    @include small-font($dark-color);
+    @include small-font;
+    color: $dark-color;
+    font-weight: bold;
     span {
       color: $light-color;
+      font-weight: normal;
     }
   }
   &__quantity {
-    @include large-font;
+    @include large-font(0);
     text-align: right;
   }
 }
