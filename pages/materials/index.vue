@@ -11,7 +11,7 @@
 <script>
 import axios from 'axios'
 import { mapGetters } from 'vuex'
-import MaterialItem from "../components/MaterialItem.vue"
+import MaterialItem from "../../components/MaterialItem.vue"
 export default {
   components: {
     MaterialItem,

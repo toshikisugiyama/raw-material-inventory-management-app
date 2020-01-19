@@ -1,6 +1,6 @@
 <template>
   <header class="body__header">
-    <h1 class="header__title">タイトル</h1>
+    <h1 class="header__title">{{ $route.name }}</h1>
     <HeaderMenu />
   </header>
 </template>

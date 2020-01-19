@@ -10,10 +10,10 @@
             <nuxt-link to="/">原材料在庫一覧</nuxt-link>
           </li>
           <li class="body__menu__list__item" @click="handleClick">
-            <nuxt-link to="/materials">原材料一覧</nuxt-link>
+            <nuxt-link to="/materials">登録済み原材料一覧</nuxt-link>
           </li>
           <li class="body__menu__list__item" @click="handleClick">
-            <nuxt-link to="/create">原材料在登録</nuxt-link>
+            <nuxt-link to="/create">原材料在庫登録</nuxt-link>
           </li>
         </ul>
       </nav>
@@ -55,6 +55,7 @@ export default {
   .body__menu {
     position: fixed;
     top: 60px;
+    bottom: 60px;
     width: 100%;
     background-color: #fff;
     &__list {
@@ -68,9 +69,6 @@ export default {
           height: 100%;
           display: block;
         }
-      }
-      &__item:last-child {
-        border-bottom: none;
       }
     }
   }
