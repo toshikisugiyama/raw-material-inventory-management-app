@@ -38,38 +38,40 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .slide-enter-active {
-    animation: slide-in 0.3s;
+@import '@/assets/scss/variable.scss';
+.slide-enter-active {
+  animation: slide-in 0.3s;
+}
+.slide-leave-active {
+  animation: slide-in 0.3s reverse;
+}
+@keyframes slide-in {
+  from {
+    transform: translateY(-1000px)
   }
-  .slide-leave-active {
-    animation: slide-in 0.3s reverse;
+  to {
+    transform: translateY(0)
   }
-  @keyframes slide-in {
-    from {
-      transform: translateY(-1000px)
-    }
-    to {
-      transform: translateY(0)
-    }
-  }
-  .body__menu {
-    position: fixed;
-    top: 60px;
-    bottom: 60px;
-    width: 100%;
-    background-color: #fff;
-    &__list {
-      list-style: none;
-      padding: 0;
-      &__item {
-        border-bottom: solid 1px #707070;
-        & > a {
-          padding: 20px 0 20px 10px;
-          width: 100%;
-          height: 100%;
-          display: block;
-        }
+}
+.body__menu {
+  position: fixed;
+  top: $header-height;
+  bottom: $header-height;
+  width: 100%;
+  background-color: #fff;
+  &__list {
+    list-style: none;
+    padding: 0;
+    &__item {
+      border-bottom: solid 1px #707070;
+      & > a {
+        @include large-font;
+        padding: 20px 0 20px 10px;
+        width: 100%;
+        height: 100%;
+        display: block;
       }
     }
   }
+}
 </style>

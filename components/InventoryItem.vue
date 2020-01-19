@@ -50,26 +50,30 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$large-font: 25px;
-$small-font: 18px;
+@import '@/assets/scss/variable.scss';
 .inventories__item {
-  font-size: $small-font;
-  padding: 15px 10px;
+  padding: $item-padding;
   border-bottom: solid 1px #707070;
   &__controlcode {
-
+    @include small-font($dark-color);
   }
   &__name {
-    font-size: $large-font;
+    @include large-font;
   }
   &__lotcode {
-
+    @include small-font($dark-color);
+    span {
+      color: $light-color;
+    }
   }
   &__dead {
-
+    @include small-font($dark-color);
+    span {
+      color: $light-color;
+    }
   }
   &__quantity {
-    font-size: $large-font;
+    @include large-font;
     text-align: right;
   }
 }

@@ -1,0 +1,18 @@
+// header
+$header-height: 60px;
+$background-color: #120576;
+// item
+$large-font: 25px;
+$small-font: 18px;
+$dark-color: #333;
+$light-color: #707070;
+@mixin large-font {
+  font-size: $large-font;
+  color: $dark-color;
+  font-weight: bold;
+}
+@mixin small-font($color: $light-color) {
+  font-size: $small-font;
+  color: $color;
+}
+$item-padding: 10px 15px;

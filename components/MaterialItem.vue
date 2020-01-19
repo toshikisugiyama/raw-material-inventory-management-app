@@ -10,7 +10,7 @@
         {{ material.name }}
       </h1>
       <!-- 仕入先 -->
-      <div class="material__item__supplier">
+      <div class="materials__item__supplier">
         {{ material.supplier }}
       </div>
     </section>
@@ -34,19 +34,18 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$large-font: 25px;
-$small-font: 18px;
+@import '@/assets/scss/variable.scss';
 .materials__item {
-  padding: 15px 10px;
+  padding: $item-padding;
   border-bottom: solid 1px #707070;
   &__controlcode {
-    font-size: $small-font;
+    @include small-font;
   }
   &__name {
-    font-size: $large-font;
+    @include large-font;
   }
   &__supplier {
-    font-size: $small-font;
+    @include small-font;
   }
 }
 </style>

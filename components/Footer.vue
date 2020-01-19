@@ -23,9 +23,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/scss/variable.scss';
 .body__footer {
-  height: 60px;
-  background-color: #120576;
+  height: $header-height;
+  background-color: $background-color;
   padding: 0 15px;
   color: #fff;
   position: fixed;
