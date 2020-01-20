@@ -1,5 +1,5 @@
 <template>
-  <n-link :to="`/inventories/${inventory.id}`">
+  <n-link :to="`/materials/${inventory.material_id}`">
     <section class="inventories__item">
       <!-- 管理コード -->
       <div class="inventories__item__controlcode">

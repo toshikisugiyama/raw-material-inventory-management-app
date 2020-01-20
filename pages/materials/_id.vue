@@ -1,29 +1,10 @@
 <template>
   <div>
-    <section class="materials">
-      <!-- 品番号 -->
-      <div class="materials__controlcode">
-        {{ internalApi.materials[$route.params.id-1].control_code }}
-      </div>
-      <!-- 品名 -->
-      <h1 class="materials__name">
-        {{ internalApi.materials[$route.params.id-1].name }}
-      </h1>
-      <!-- 仕入先 -->
-      <div class="materials__supplier">
-        {{ internalApi.materials[$route.params.id-1].supplier }}
-      </div>
-      <!-- 在庫量 -->
-      <div class="materials__total">
-        <span class="materials__total__label">総量</span>
-        {{ internalApi.materials[$route.params.id-1].total | addComma }}
-        <span class="materials__total__unit">
-          {{ internalApi.materials[$route.params.id-1].unit }}
-        </span>
-      </div>
-    </section>
+    <MaterialInfo
+      :selectedMaterial="selectedMaterial"
+    />
     <InventoryLotItem
-      v-for="item in SelectLotItem"
+      v-for="item in selectedLotItem"
       :key="item.id"
       :item="item"
     />
@@ -33,22 +14,27 @@
 <script>
 import axios from 'axios'
 import { mapGetters } from 'vuex'
+import MaterialInfo from "../../components/MaterialInfo.vue"
 import InventoryLotItem from "../../components/InventoryLotItem.vue"
 export default {
   components: {
+    MaterialInfo,
     InventoryLotItem,
   },
   computed: {
     ...mapGetters({
       internalApi: 'getInternalApi',
     }),
-    SelectLotItem() {
-      const SelectedLotItems = this.internalApi.inventories.filter(obj => obj.material_id.toString() === this.$route.params.id)
-      return SelectedLotItems
+    selectedMaterial() {
+      const materials = this.internalApi.materials
+      const presentId = this.$route.params.id
+      const selectedMaterial = materials[presentId-1]
+      return selectedMaterial
     },
-  },
-  filters: {
-    addComma: val => val.toLocaleString(),
+    selectedLotItem() {
+      const selectedLotItems = this.internalApi.inventories.filter(obj => obj.material_id.toString() === this.$route.params.id)
+      return selectedLotItems
+    },
   },
   async fetch ({ store, params }) {
     let { data } = await axios.get('http://localhost:3000/api/')
@@ -57,29 +43,4 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-@import '@/assets/scss/variable.scss';
-.materials {
-  padding: $item-padding;
-  padding-bottom: $item-padding*2;
-  border-bottom: $border-style;
-  &__controlcode {
-    @include small-font;
-    margin-bottom: $item-padding/2;
-  }
-  &__name {
-    @include large-font;
-  }
-  &__supplier {
-    @include small-font;
-  }
-  &__total {
-    text-align: right;
-    @include large-font(0);
-    &__label {
-      @include small-font;
-      font-weight: normal;
-    }
-  }
-}
-</style>
+
