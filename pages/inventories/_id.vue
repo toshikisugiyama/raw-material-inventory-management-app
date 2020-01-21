@@ -33,6 +33,11 @@
           </span>
         </p>
       </div>
+      <button
+        @click.prevent="putInventoryQuantity"
+      >
+        決定
+      </button>
     </section>
   </div>
 </template>
@@ -73,6 +78,13 @@ export default {
   },
   filters: {
     addComma: val => val.toLocaleString(),
+  },
+  methods: {
+    async putInventoryQuantity() {
+      const response = await axios.put(`http://localhost:3000/api/inventories/${this.selectedInventory.id}`, {
+        stock_quantity: this.calculatedInventory
+      }).then(() => { this.$router.go(-1) })
+    },
   },
   async fetch ({ store, params }) {
     let { data } = await axios.get('http://localhost:3000/api/')

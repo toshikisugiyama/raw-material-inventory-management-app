@@ -1,8 +1,6 @@
 <template>
   <footer class="body__footer">
-    <nuxt-link :to="`/${selectedBackTo}`">
-      <button>戻る</button>
-    </nuxt-link>
+    <button @click="backPage">戻る</button>
     <nuxt-link to="/edit">
       <button>編集</button>
     </nuxt-link>
@@ -11,13 +9,8 @@
 
 <script>
 export default {
-  computed: {
-    selectedBackTo: function(){
-      if (this.$route.path===`/consume/${this.$route.params.lot_code}`) {
-        return `detail/${this.$store.getters['inventories/getSelectedItem'].id}`
-      }
-      return ''
-    },
+  methods: {
+    backPage(){ this.$router.go(-1) },
   }
 }
 </script>
@@ -37,7 +30,7 @@ export default {
   align-items: center;
   justify-content: center;
   bottom: 0;
-  & button {
+  button {
     height: $header-height - 10px;
     width: $header-height - 10px;
     display: flex;
@@ -46,6 +39,7 @@ export default {
     background-color: #fff;
     margin: 0 5px;
     font-size: 18px;
+    cursor: pointer;
   }
 }
 </style>
