@@ -10,10 +10,13 @@
             <nuxt-link to="/">原材料在庫一覧</nuxt-link>
           </li>
           <li class="body__menu__list__item" @click="handleClick">
-            <nuxt-link to="/materials">登録済み原材料一覧</nuxt-link>
+            <nuxt-link to="/inventories/register">原材料在庫受入</nuxt-link>
           </li>
           <li class="body__menu__list__item" @click="handleClick">
-            <nuxt-link to="/create">原材料在庫登録</nuxt-link>
+            <nuxt-link to="/materials">取扱原材料一覧</nuxt-link>
+          </li>
+          <li class="body__menu__list__item" @click="handleClick">
+            <nuxt-link to="/materials/register">取扱原材料登録</nuxt-link>
           </li>
         </ul>
       </nav>
