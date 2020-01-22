@@ -1,8 +1,8 @@
 <template>
   <footer class="body__footer">
     <button @click="backPage">戻る</button>
-    <nuxt-link to="/edit">
-      <button>編集</button>
+    <nuxt-link to="/search">
+      <button>検索</button>
     </nuxt-link>
   </footer>
 </template>
