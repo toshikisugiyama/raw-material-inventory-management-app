@@ -4,9 +4,6 @@
       <nav>
         <ul class="body__menu__list">
           <li class="body__menu__list__item" @click="handleClick">
-            <nuxt-link to="/search">原材料在庫検索</nuxt-link>
-          </li>
-          <li class="body__menu__list__item" @click="handleClick">
             <nuxt-link to="/">原材料在庫一覧</nuxt-link>
           </li>
           <li class="body__menu__list__item" @click="handleClick">
@@ -35,6 +32,7 @@ export default {
   methods: {
     handleClick() {
       this.$store.commit('clickHeaderMenu')
+      this.$store.commit('closeSearch')
     }
   }
 }

@@ -1,6 +1,7 @@
 export const state = () => ({
   headerMenu: false,
   internalApi: [],
+  search: false,
 })
 
 export const mutations = {
@@ -9,6 +10,12 @@ export const mutations = {
   },
   setInternalApi(state, data) {
     state.internalApi = data
+  },
+  closeSearch(state) {
+    state.search = false
+  },
+  toggleSearch(state) {
+    state.search = !state.search
   }
 }
 
@@ -24,5 +31,8 @@ export const getters = {
   },
   getInternalApi(state) {
     return state.internalApi
+  },
+  getSearchState(state) {
+    return state.search
   }
 }
