@@ -40,7 +40,8 @@ export default {
         if (
           material.control_code.indexOf(this.keyword) !== -1 ||
           material.name.indexOf(this.keyword) !== -1 ||
-          material.supplier.indexOf(this.keyword) !== -1
+          material.supplier.indexOf(this.keyword) !== -1 ||
+          material.material_comment.indexOf(this.keyword) !== -1
         ) {
           materials.push(material)
         }

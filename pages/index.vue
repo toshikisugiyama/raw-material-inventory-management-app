@@ -52,7 +52,8 @@ export default {
       }
       return inventories
     },
-  }, async fetch ({ store, params }) {
+  },
+  async fetch ({ store, params }) {
     const URL = 'http://localhost:3000/api/'
     let { data } = await axios.get(URL)
     store.commit('setInternalApi', data)
