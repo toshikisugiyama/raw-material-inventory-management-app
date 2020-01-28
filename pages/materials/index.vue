@@ -50,8 +50,8 @@ export default {
     },
   },
   async fetch ({ store, params }) {
-    const URL = 'http://localhost:3000/api/'
-    let { data } = await axios.get(URL)
+    const url = process.env.baseUrl
+    let { data } = await axios.get(url)
     store.commit('setInternalApi', data)
   },
 }

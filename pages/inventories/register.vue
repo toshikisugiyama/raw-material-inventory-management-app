@@ -67,7 +67,8 @@ export default {
         inventory_comment: this.inventoryComment,
         material_id: this.materialId,
       }
-      const response = await axios.post('http://localhost:3000/api/inventories', data)
+      const url = process.env.baseUrl + 'inventories'
+      const response = await axios.post(url, data)
       .then(() => {
         this.controlCode = '',
         this.lotCode = '',
@@ -93,7 +94,8 @@ export default {
     },
   },
   async fetch ({ store, params }) {
-    let { data } = await axios.get('http://localhost:3000/api/')
+    const url = process.env.baseUrl
+    let { data } = await axios.get(url)
     store.commit('setInternalApi', data)
   },
 }

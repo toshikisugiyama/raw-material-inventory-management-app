@@ -84,14 +84,16 @@ export default {
       const data = {
         stock_quantity: this.calculatedInventory
       }
-      const response = await axios.put(`http://localhost:3000/api/inventories/${this.selectedInventory.id}`, data)
+      const url = process.env.baseUrl + 'inventories' + this.selectedInventory.id
+      const response = await axios.put(url, data)
       .then(() => {
         this.amountUsed = ''
       })
     },
   },
   async fetch ({ store, params }) {
-    let { data } = await axios.get('http://localhost:3000/api/')
+    const url = process.env.baseUrl
+    let { data } = await axios.get(url)
     store.commit('setInternalApi', data)
   },
 }

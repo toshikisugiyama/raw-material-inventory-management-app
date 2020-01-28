@@ -44,13 +44,15 @@ export default {
   ],
   axios: {
     proxy: true,
-    baseURL: 'http://localhost:3000/api/',
   },
   proxy: {
     '/api/': {
       target: 'http://127.0.0.1:8000/internal_api',
       pathRewrite: {'^/api/': ''},
     },
+  },
+  env: {
+    baseUrl: process.env.BASE_URL || 'http://localhost:3000/api/'
   },
   /*
   ** Build configuration

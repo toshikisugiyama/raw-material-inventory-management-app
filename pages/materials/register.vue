@@ -76,7 +76,8 @@ export default {
         unit: this.unit,
         material_comment: this.materialComment,
       }
-      const response = await axios.post(`http://localhost:3000/api/materials`, data).then(() => {
+      const url = process.env.baseUrl + `materials`
+      const response = await axios.post(url, data).then(() => {
         this.controlCode = ''
         this.name = ''
         this.supplier = ''
