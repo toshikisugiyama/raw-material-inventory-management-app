@@ -41,6 +41,7 @@ export default {
   */
   modules: [
     '@nuxtjs/axios',
+    '@nuxtjs/auth',
   ],
   axios: {
     proxy: true,
@@ -53,6 +54,14 @@ export default {
   },
   env: {
     baseUrl: process.env.BASE_URL || 'http://localhost:3000/api/'
+  },
+  auth: {
+    redirect: {
+      login: '/login',
+      logout: '/',
+      callback: '/login',
+      home: '/',
+    },
   },
   /*
   ** Build configuration
