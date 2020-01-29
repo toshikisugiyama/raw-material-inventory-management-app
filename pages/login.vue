@@ -17,10 +17,10 @@
       </li>
     </ul>
     <div class="login__form" v-show="tab === 0">
-      <LoginForm @input-form="inputForm" :loginForm="loginForm" />
+      <LoginForm @input-form="inputLoginForm" :loginForm="loginForm" />
     </div>
     <div class="login__form" v-show="tab === 1">
-      <RegisterForm />
+      <RegisterForm @input-form="inputRegisterForm" :registerForm="registerForm" />
     </div>
   </section>
 </template>
@@ -40,15 +40,28 @@ export default {
         email: '',
         pass: '',
       },
+      registerForm: {
+        name: '',
+        email: '',
+        pass: '',
+        pass_confirmation: '',
+      },
     }
   },
   methods: {
-    inputForm: function(event) {
+    inputLoginForm: function(event) {
       this.loginForm = event
       this.login()
     },
     login: function() {
       console.log(this.loginForm)
+    },
+    inputRegisterForm: function(event) {
+      this.registerForm = event
+      this.register()
+    },
+    register: function() {
+      console.log(this.registerForm)
     }
   }
 }

@@ -1,21 +1,40 @@
 <template>
   <form class="form">
     <p class="form__item">
-      <label for="login-email">Email</label>
-      <input type="email" name="login-email" autocomplete="username">
+      <label for="register-name">Name</label>
+      <input type="text" name="register-name" v-model="registerForm.name">
     </p>
     <p class="form__item">
-      <label for="login-pass">Pass</label>
-      <input type="password" name="login-pass" autocomplete="current-password">
+      <label for="register-email">Email</label>
+      <input type="email" name="register-email" v-model="registerForm.email" autocomplete="username">
+    </p>
+    <p class="form__item">
+      <label for="register-pass">Pass</label>
+      <input type="password" name="register-pass" v-model="registerForm.pass" autocomplete="current-password">
+    </p>
+    <p class="form__item">
+      <label for="register-pass-confirmation">Pass(confirmation)</label>
+      <input type="password" name="register-pass-confirmation" v-model="registerForm.pass_conrirmation" autocomplete="current-password">
     </p>
     <div class="form__button">
-      <button type="submit" @click.prevent.self="submitLogin">登録</button>
+      <button type="submit" @click.prevent.self="submitRegister">登録</button>
     </div>
   </form>
 </template>
 
 <script>
 export default {
+  props: {
+    registerForm: {
+      type: Object,
+      required: true,
+    },
+  },
+  methods: {
+    submitRegister: function() {
+      this.$emit('input-form', this.registerForm)
+    },
+  },
 }
 </script>
 
