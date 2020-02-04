@@ -48,7 +48,7 @@ export default {
   },
   proxy: {
     '/api/': {
-      target: 'http://127.0.0.1:8000/internal_api',
+      target: 'http://127.0.0.1:8000/api',
       pathRewrite: {'^/api/': ''},
     },
   },
@@ -56,11 +56,16 @@ export default {
     baseUrl: process.env.BASE_URL || 'http://localhost:3000/api/'
   },
   auth: {
-    redirect: {
-      login: '/login',
-      logout: '/',
-      callback: '/login',
-      home: '/',
+    strategies: {
+      local: {
+        endpoints: {
+          login: { url: 'login', method: 'post', propertyName: 'token' },
+          logout: { url: '/api/auth/logout', method: 'post' },
+          user: { url: '/api/auth/user', method: 'get', propertyName: 'user' }
+        },
+        // tokenRequired: true,
+        // tokenType: 'bearer'
+      },
     },
   },
   /*

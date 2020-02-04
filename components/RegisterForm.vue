@@ -9,12 +9,12 @@
       <input type="email" name="register-email" v-model="registerForm.email" autocomplete="username">
     </p>
     <p class="form__item">
-      <label for="register-pass">Pass</label>
-      <input type="password" name="register-pass" v-model="registerForm.pass" autocomplete="current-password">
+      <label for="register-password">Password</label>
+      <input type="password" name="register-password" v-model="registerForm.password" autocomplete="current-password">
     </p>
     <p class="form__item">
-      <label for="register-pass-confirmation">Pass(confirmation)</label>
-      <input type="password" name="register-pass-confirmation" v-model="registerForm.pass_conrirmation" autocomplete="current-password">
+      <label for="register-password-confirmation">Password(confirmation)</label>
+      <input type="password" name="register-password-confirmation" v-model="registerForm.password_confirmation" autocomplete="current-password">
     </p>
     <div class="form__button">
       <button type="submit" @click.prevent.self="submitRegister">登録</button>

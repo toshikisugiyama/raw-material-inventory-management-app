@@ -1,6 +1,13 @@
 <template>
   <header class="body__header">
     <h1 class="header__title">{{ $route.name }}</h1>
+    <div v-if="$auth.loggedIn">
+      {{ $auth.user.name }}
+      <button @click="AlertAuth">logout</button>
+    </div>
+    <div v-else>
+      <button @click="AlertAuth">login</button>
+    </div>
     <HeaderMenu />
   </header>
 </template>
@@ -10,7 +17,12 @@ import HeaderMenu from '../components/HeaderMenu.vue'
 export default {
   components: {
     HeaderMenu,
-  }
+  },
+  methods: {
+    AlertAuth(){
+      alert(this.$auth.user)
+    },
+  },
 }
 </script>
 

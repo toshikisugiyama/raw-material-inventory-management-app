@@ -1,7 +1,10 @@
+import axios from 'axios'
+
 export const state = () => ({
   headerMenu: false,
   internalApi: [],
   search: false,
+  user: null,
 })
 
 export const mutations = {
@@ -16,12 +19,22 @@ export const mutations = {
   },
   toggleSearch(state) {
     state.search = !state.search
+  },
+  setUser(state, user) {
+    state.user = user
   }
 }
 
 export const actions = {
   setInternalApi(context) {
     context.commit('')
+  },
+  async register (context, data) {
+    const url = process.env.baseUrl + 'register'
+    const response = await axios.post(url, data).catch(err => {
+      console.log(err.message)
+    })
+    context.commit('setUser', response.data)
   }
 }
 

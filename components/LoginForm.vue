@@ -5,8 +5,8 @@
       <input type="email" name="login-email" v-model="loginForm.email" autocomplete="username">
     </p>
     <p class="form__item">
-      <label for="login-pass">Pass</label>
-      <input type="password" name="login-pass" v-model="loginForm.pass" autocomplete="current-password">
+      <label for="login-password">Password</label>
+      <input type="password" name="login-password" v-model="loginForm.password" autocomplete="current-password">
     </p>
     <div class="form__button">
       <button type="submit" @click.prevent.self="submitLogin">ログイン</button>

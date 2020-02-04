@@ -26,6 +26,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 import LoginForm from '../components/LoginForm.vue'
 import RegisterForm from '../components/RegisterForm.vue'
 export default {
@@ -38,31 +39,33 @@ export default {
       tab: 0,
       loginForm: {
         email: '',
-        pass: '',
+        password: '',
       },
       registerForm: {
         name: '',
         email: '',
-        pass: '',
-        pass_confirmation: '',
+        password: '',
+        password_confirmation: '',
       },
     }
   },
   methods: {
-    inputLoginForm: function(event) {
+    inputLoginForm(event) {
       this.loginForm = event
       this.login()
     },
-    login: function() {
-      console.log(this.loginForm)
+    async login(loginForm) {
+      await this.$auth.loginWith('local', {
+        data: this.registerForm,
+      })
     },
-    inputRegisterForm: function(event) {
+    inputRegisterForm(event) {
       this.registerForm = event
       this.register()
     },
-    register: function() {
-      console.log(this.registerForm)
-    }
+    async register() {
+      await this.$store.dispatch('register', this.registerForm)
+    },
   }
 }
 </script>
