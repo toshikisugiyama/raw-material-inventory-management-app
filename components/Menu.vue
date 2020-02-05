@@ -33,7 +33,7 @@ export default {
     handleClick() {
       this.$store.commit('clickHeaderMenu')
       this.$store.commit('closeSearch')
-    }
+    },
   }
 }
 </script>

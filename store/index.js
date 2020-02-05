@@ -11,6 +11,9 @@ export const mutations = {
   clickHeaderMenu(state) {
     state.headerMenu = !state.headerMenu
   },
+  closeHeaderMenu(state) {
+    state.headerMenu = false
+  },
   setInternalApi(state, data) {
     state.internalApi = data
   },
@@ -29,12 +32,26 @@ export const actions = {
   setInternalApi(context) {
     context.commit('')
   },
-  async register (context, data) {
+  async register(context, data) {
     const url = process.env.baseUrl + 'register'
-    const response = await axios.post(url, data).catch(err => {
-      console.log(err.message)
-    })
+    const response = await axios.post(url, data)
     context.commit('setUser', response.data)
+  },
+  async login(context, data) {
+    const url = process.env.baseUrl + 'login'
+    const response = await axios.post(url, data)
+    context.commit('setUser', response.data)
+  },
+  async logout(context) {
+    const url = process.env.baseUrl + 'logout'
+    const response = await axios.post(url)
+    context.commit('setUser', null)
+  },
+  async currentUser(context) {
+    const url = process.env.baseUrl + 'user'
+    const response = await axios.get(url)
+    const user = response.data || null
+    context.commit('setUser', user)
   }
 }
 

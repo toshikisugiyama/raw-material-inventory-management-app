@@ -41,7 +41,6 @@ export default {
   */
   modules: [
     '@nuxtjs/axios',
-    '@nuxtjs/auth',
   ],
   axios: {
     proxy: true,
@@ -54,19 +53,6 @@ export default {
   },
   env: {
     baseUrl: process.env.BASE_URL || 'http://localhost:3000/api/'
-  },
-  auth: {
-    strategies: {
-      local: {
-        endpoints: {
-          login: { url: 'login', method: 'post', propertyName: 'token' },
-          logout: { url: '/api/auth/logout', method: 'post' },
-          user: { url: '/api/auth/user', method: 'get', propertyName: 'user' }
-        },
-        // tokenRequired: true,
-        // tokenType: 'bearer'
-      },
-    },
   },
   /*
   ** Build configuration

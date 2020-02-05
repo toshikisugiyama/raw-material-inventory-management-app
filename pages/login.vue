@@ -52,19 +52,18 @@ export default {
   methods: {
     inputLoginForm(event) {
       this.loginForm = event
-      this.login()
+      this.login(this.loginForm)
     },
     async login(loginForm) {
-      await this.$auth.loginWith('local', {
-        data: this.registerForm,
-      })
+      await this.$store.dispatch('login', loginForm)
+      this.$router.push('/')
     },
     inputRegisterForm(event) {
       this.registerForm = event
-      this.register()
+      this.register(this.registerForm)
     },
-    async register() {
-      await this.$store.dispatch('register', this.registerForm)
+    async register(registerForm) {
+      await this.$store.dispatch('register', registerForm)
     },
   }
 }
