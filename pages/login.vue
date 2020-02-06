@@ -65,7 +65,7 @@ export default {
     async register(registerForm) {
       await this.$store.dispatch('register', registerForm)
     },
-  }
+  },
 }
 </script>
 

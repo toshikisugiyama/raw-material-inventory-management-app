@@ -28,9 +28,6 @@ export default {
       this.$store.commit('closeSearch')
     },
   },
-  async beforeCreate() {
-    await this.$store.dispatch('currentUser')
-  }
 }
 </script>
 

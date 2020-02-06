@@ -56,13 +56,9 @@ export const actions = {
 }
 
 export const getters = {
-  getHeaderMenu(state) {
-    return state.headerMenu
-  },
-  getInternalApi(state) {
-    return state.internalApi
-  },
-  getSearchState(state) {
-    return state.search
-  }
+  getHeaderMenu: state => state.headerMenu,
+  getInternalApi: state => state.internalApi,
+  getSearchState: state => state.search,
+  checkCurrentUser: state => !! state.user,
+  getCurrentUserName: state => state.user ? state.user.name : '',
 }
