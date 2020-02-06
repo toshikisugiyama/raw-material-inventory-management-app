@@ -1,9 +1,7 @@
 <template>
   <footer class="body__footer">
     <button @click="backPage">戻る</button>
-    <nuxt-link to="/edit">
-      <button>編集</button>
-    </nuxt-link>
+    <button @click="clickSearch">検索</button>
   </footer>
 </template>
 
@@ -11,6 +9,7 @@
 export default {
   methods: {
     backPage(){ this.$router.go(-1) },
+    clickSearch() {this.$store.commit('toggleSearch')}
   }
 }
 </script>

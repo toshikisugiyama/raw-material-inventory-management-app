@@ -47,9 +47,12 @@ export default {
   },
   proxy: {
     '/api/': {
-      target: 'http://127.0.0.1:8000/internal_api',
+      target: 'http://127.0.0.1:8000/api',
       pathRewrite: {'^/api/': ''},
     },
+  },
+  env: {
+    baseUrl: process.env.BASE_URL || 'http://localhost:3000/api/'
   },
   /*
   ** Build configuration
@@ -60,5 +63,12 @@ export default {
     */
     extend (config, ctx) {
     }
-  }
+  },
+  router: {
+    middleware: 'auth',
+  },
+  // server: {
+  //   port: 8000, // デフォルト: 3000
+  //   host: '0.0.0.0' // デフォルト: localhost
+  // }
 }

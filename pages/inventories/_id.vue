@@ -81,13 +81,19 @@ export default {
   },
   methods: {
     async putInventoryQuantity() {
-      const response = await axios.put(`http://localhost:3000/api/inventories/${this.selectedInventory.id}`, {
+      const data = {
         stock_quantity: this.calculatedInventory
-      }).then(() => { this.$router.go(-1) })
+      }
+      const url = process.env.baseUrl + 'inventories' + this.selectedInventory.id
+      const response = await axios.put(url, data)
+      .then(() => {
+        this.amountUsed = ''
+      })
     },
   },
   async fetch ({ store, params }) {
-    let { data } = await axios.get('http://localhost:3000/api/')
+    const url = process.env.baseUrl
+    let { data } = await axios.get(url)
     store.commit('setInternalApi', data)
   },
 }

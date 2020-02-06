@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Header />
+    <Header @logout="logout()" />
     <Menu />
     <div class="body__main">
       <nuxt />
@@ -19,6 +19,14 @@ export default {
     Header,
     Menu,
     Footer,
+  },
+  methods: {
+    async logout() {
+      await this.$store.dispatch('logout')
+      this.$router.push('/login')
+      this.$store.commit('closeHeaderMenu')
+      this.$store.commit('closeSearch')
+    },
   },
 }
 </script>

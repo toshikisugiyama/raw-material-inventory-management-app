@@ -1,7 +1,15 @@
 <template>
   <header class="body__header">
-    <h1 class="header__title">{{ $route.name }}</h1>
-    <HeaderMenu />
+    <h1 class="body__header__title">{{ $route.name }}</h1>
+    <div class="body__header__info">
+      <div class="body__header__info__logedin" v-if="$store.state.user">
+        <h2 class="body__header__info__logedin__username">{{$store.state.user.name}}</h2>
+        <div class="body__header__info__logedin__logout">
+          <button @click="$emit('logout')">ログアウト</button>
+        </div>
+      </div>
+      <HeaderMenu />
+    </div>
   </header>
 </template>
 
@@ -10,7 +18,12 @@ import HeaderMenu from '../components/HeaderMenu.vue'
 export default {
   components: {
     HeaderMenu,
-  }
+  },
+  methods: {
+    AlertAuth(){
+      alert(this.$auth.user)
+    },
+  },
 }
 </script>
 
@@ -32,6 +45,17 @@ export default {
   &__title {
     font-size: 40px;
     margin: 0;
+  }
+  &__info {
+    display: flex;
+    align-items: center;
+    &__logedin {
+      display: flex;
+      align-items: center;
+      &__username{
+        @include small-font(0);
+      }
+    }
   }
 }
 </style>
